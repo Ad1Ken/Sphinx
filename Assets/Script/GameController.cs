@@ -11,8 +11,10 @@ public class GameController : MonoBehaviour
     public GameObject prefabPos;//prefabs will instantiate under this panel
     //private Vector3 sceneDisplayPosition = new Vector3(0.34f, 0.074f, 0);
     public DialogueSystem diasys;
+    public Button nextButton;
     void Start()
     {
+        nextButton.interactable = false;
         Object[] ScenePrefabs = Resources.LoadAll("ScenesPrefab",typeof(GameObject));
         scenesArray = new GameObject[ScenePrefabs.Length];
         for (int i = 0; i < ScenePrefabs.Length; i++)
@@ -27,8 +29,6 @@ public class GameController : MonoBehaviour
         diasys.NextRiddle(0);
 
     }
-
-    // Update is called once per fram
 
     public void OnClickRightArrow()
     {
@@ -53,5 +53,6 @@ public class GameController : MonoBehaviour
             scenesArray[i].SetActive(false);
         }
         scenesArray[scenesIndex].SetActive(true);
+        nextButton.interactable = false;
     }
 }
