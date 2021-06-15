@@ -21,7 +21,7 @@ public class HUDHandler : MonoBehaviour
         ActiveGameState(HUDstate.Menu);
     }
 
-    private void ActiveGameState(HUDstate state)
+    public void ActiveGameState(HUDstate state)
     {
         if (state == HUDstate.Menu)
         {
@@ -73,8 +73,6 @@ public class HUDHandler : MonoBehaviour
     public void Clean()
     {
         PlayerPrefs.DeleteAll();
-        SceneManager.LoadScene("Game");
-
     }
 
     
